@@ -13,6 +13,8 @@ import Contact from "./Contact";
 import Footer from "./Footer";
 
 const App = () => {
+  const screen = window.innerWidth;
+
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false });
   return (
@@ -57,6 +59,7 @@ const App = () => {
       <Partner />
       <Contact />
       <Footer />
+      <div className="fixed text-white z-10 top-0 right-0">{screen}</div>
     </div>
   );
 };

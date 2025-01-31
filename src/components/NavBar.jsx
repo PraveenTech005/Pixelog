@@ -13,7 +13,11 @@ const NavBar = () => {
 
   return (
     <div className="w-full flex flex-row justify-between items-center p-5 bg-[#ffffff80] dark:bg-[#00000080]">
-      <img src={Pixelog} alt="Pixelog Logo" className="w-2/6 dark:invert" />
+      <img
+        src={Pixelog}
+        alt="Pixelog Logo"
+        className="w-2/6 dark:invert sm:w-3/12"
+      />
       <div className="flex flex-row justify-evenly items-center space-x-5 z-10">
         <Theme />
         <div

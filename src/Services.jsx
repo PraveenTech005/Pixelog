@@ -34,31 +34,33 @@ const Services = () => {
       id="services"
     >
       <div className="flex flex-col justify-evenly items-center space-y-10 mt-10">
-        <h1 className="text-3xl">Explore Our Services</h1>
-        <h3 className="text-sm">
+        <h1 className="text-3xl sm:text-4xl">Explore Our Services</h1>
+        <h3 className="text-sm sm:text-base">
           Elevate Your Brand’s Impact with Our Tailored Solutions
         </h3>
       </div>
-      <div className="flex flex-col justify-evenly items-center space-y-10 mt-10">
+      <div className="flex flex-wrap justify-evenly items-stretch gap-5 mt-10 text-center">
         {content.map((item, index) => (
           <motion.div
             initial={
-              index % 2 == 0
+              index % 2 === 0
                 ? { x: "100%", opacity: 0 }
                 : { x: "-100%", opacity: 0 }
             }
             whileInView={{ x: "0%", opacity: 1 }}
             transition={{ duration: 0.4, delay: 0.3 }}
             key={index}
-            className="flex flex-col justify-evenly items-center p-5 space-y-10 text-sm border-2 border-black dark:border-white rounded-xl"
+            className="flex flex-col justify-evenly p-5 text-sm border-2 space-y-10 border-black dark:border-white rounded-xl sm:w-5/12 flex-grow"
           >
-            <h1 className="text-xl">{item.head}</h1>
+            <h1 className="text-xl sm:text-2xl">{item.head}</h1>
             <img
               src={item.img}
               alt={item.head}
               className="w-full rounded-2xl"
             />
-            <h3 className="indent-5">{item.para}</h3>
+            <h3 className="indent-5 sm:indent-10 flex-1 text-justify sm:text-base">
+              {item.para}
+            </h3>
           </motion.div>
         ))}
       </div>

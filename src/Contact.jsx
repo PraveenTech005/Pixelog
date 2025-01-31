@@ -3,6 +3,7 @@ import Contactimg from "/img/Contact Us.svg";
 import emailjs from "emailjs-com";
 import { TiTick } from "react-icons/ti";
 import { motion } from "framer-motion";
+import { BiSolidSend } from "react-icons/bi";
 
 const Contact = () => {
   const [data, setData] = useState({
@@ -47,9 +48,9 @@ const Contact = () => {
       className="w-full min-h-screen backdrop-blur-sm p-5 flex flex-col justify-evenly items-center space-y-10"
       id="contact"
     >
-      <h1 className="text-3xl">Contact Us</h1>
+      <h1 className="text-3xl sm:text-4xl">Contact Us</h1>
       <motion.div
-        className="w-full"
+        className="w-full sm:w-4/6"
         initial={{ x: "100%", opacity: 0 }}
         whileInView={{ x: "0%", opacity: 1 }}
         transition={{ duration: 0.4 }}
@@ -60,7 +61,7 @@ const Contact = () => {
         initial={{ x: "-100%", opacity: 0 }}
         whileInView={{ x: "0%", opacity: 1 }}
         transition={{ duration: 0.4 }}
-        className="text-justify indent-5 text-sm"
+        className="text-justify indent-5 text-sm sm:w-5/6 sm:text-base"
       >
         We’d love to hear from you! Whether you’re looking to collaborate, have
         a query, or simply want to say hello, here’s how you can get in touch
@@ -70,7 +71,7 @@ const Contact = () => {
         initial={{ x: "100%", opacity: 0 }}
         whileInView={{ x: "0%", opacity: 1 }}
         transition={{ duration: 0.4 }}
-        className="flex flex-col justify-evenly items-center space-y-5 border-2 border-black dark:border-white p-5 w-full rounded-xl"
+        className="flex flex-col justify-evenly items-center space-y-5 border-2 border-black dark:border-white p-5 w-full rounded-xl sm:w-4/6"
         onSubmit={emailSend}
       >
         <input
@@ -100,16 +101,24 @@ const Contact = () => {
         />
         <button
           type="submit"
-          className="bg-button p-2 px-10 font-atkinsonB rounded-lg flex flex-row items-center text-white border-2 border-black dark:border-white"
+          className="bg-button p-2 px-10 font-atkinsonB rounded-lg flex flex-row justify-center items-center text-white border-2 border-black dark:border-white w-2/6 sm:w-3/6"
         >
           {isSending === "" ? (
-            "Send"
+            <div className="flex flex-row space-x-3">
+              <h3>Send</h3>
+              <h3>
+                <BiSolidSend size={20} />
+              </h3>
+            </div>
           ) : isSending === "sending" ? (
-            "sending ..."
+            "Sending ..."
           ) : (
-            <>
-              Sent <TiTick size={20} />
-            </>
+            <div className="flex flex-row space-x-3">
+              <h3>Sent</h3>
+              <h3>
+                <TiTick size={20} />
+              </h3>
+            </div>
           )}
         </button>
       </motion.form>

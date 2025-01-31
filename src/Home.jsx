@@ -11,7 +11,7 @@ const Home = () => {
           initial={{ x: "-100%", opacity: 0 }}
           whileInView={{ x: "0%", opacity: 1 }}
           transition={{ duration: 0.4, delay: 0.3 }}
-          className="text-4xl"
+          className="text-4xl sm:text-5xl"
         >
           <h1 className="font-afacad">Hi,</h1>
           <h1 className="indent-5 font-afacad">We Are PIXELOG</h1>
@@ -20,7 +20,7 @@ const Home = () => {
           initial={{ x: "100%", opacity: 0 }}
           whileInView={{ x: "0%", opacity: 1 }}
           transition={{ duration: 0.4, delay: 0.3 }}
-          className="flex flex-col justify-evenly items-center text-justify space-y-10 text-sm indent-5"
+          className="flex flex-col justify-evenly items-center text-justify space-y-10 text-sm sm:w-5/6 sm:text-base indent-5 sm:indent-10"
         >
           <h3>
             We craft impactful campaigns and innovative branding to help your
@@ -32,8 +32,8 @@ const Home = () => {
           </h3>
           <button>
             <a
-              href="#"
-              className="bg-button p-2 px-10 text-lg font-atkinsonB rounded-lg text-white border-2 border-black dark:border-white"
+              href="#contact"
+              className="bg-button p-2 px-10 text-lg font-atkinsonB rounded-lg text-white border-2 border-black dark:border-white sm:text-xl"
             >
               Free Consultation
             </a>
@@ -43,7 +43,7 @@ const Home = () => {
           initial={{ x: "-100%", opacity: 0 }}
           whileInView={{ x: "0%", opacity: 1 }}
           transition={{ duration: 0.4, delay: 0.3 }}
-          className="w-full"
+          className="w-full sm:w-4/6"
         >
           <img src={MarketingAni} alt="Marketing Animation" />
         </motion.div>

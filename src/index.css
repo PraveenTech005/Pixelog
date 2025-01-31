@@ -74,3 +74,11 @@ h1 {
 textarea {
   resize: none;
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb{
+  background-color: black;
+}
