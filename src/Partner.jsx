@@ -20,7 +20,7 @@ const Partner = () => {
           <img src={TVK} alt="The Vlogging Kid Logo" className="w-4/6" />
         </motion.div>
         <motion.div
-          className="w-full space-y-10"
+          className="w-full space-y-20"
           initial={{ x: "-100%", opacity: 0 }}
           whileInView={{ x: "0%", opacity: 1 }}
           transition={{ duration: 0.4 }}
@@ -33,16 +33,14 @@ const Partner = () => {
             it’s a top choice for impactful promotions. The Vlogging Kid bridges
             brands and audiences through creative, authentic content.
           </h3>
-          <div className="flex flex-row justify-evenly items-center space-x-20">
+          <div className="w-full flex flex-row justify-center items-center space-x-20">
             <a
               href="https://www.instagram.com/the_vlogging_kid_"
-              className="w-2/12"
             >
               <FaInstagram size={30} />
             </a>
             <a
               href="https://www.youtube.com/@TheVloggingKid/videos"
-              className="w-2/12"
             >
               <FaYoutube size={30} />
             </a>

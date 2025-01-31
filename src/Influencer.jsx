@@ -8,7 +8,7 @@ const Influencer = () => {
       <motion.div
         initial={{ x: "100%", opacity: 0 }}
         whileInView={{ x: "0%", opacity: 1 }}
-        // transition={{ duration: 0.4 }}
+        transition={{ duration: 0.4, delay: 0.5 }}
         className="w-full h-full flex flex-col justify-evenly items-center text-justify space-y-12"
       >
         <img
@@ -27,7 +27,7 @@ const Influencer = () => {
       <motion.div
         initial={{ x: "-100%", opacity: 0 }}
         whileInView={{ x: "0%", opacity: 1 }}
-        // transition={{ duration: 0.4 }}
+        transition={{ duration: 0.4, delay: 0.5 }}
         className="flex flex-col justify-evenly items-center text-justify space-y-12"
       >
         <img

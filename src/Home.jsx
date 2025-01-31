@@ -10,6 +10,7 @@ const Home = () => {
         <motion.div
           initial={{ x: "-100%", opacity: 0 }}
           whileInView={{ x: "0%", opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.3 }}
           className="text-4xl"
         >
           <h1 className="font-afacad">Hi,</h1>
@@ -18,6 +19,7 @@ const Home = () => {
         <motion.div
           initial={{ x: "100%", opacity: 0 }}
           whileInView={{ x: "0%", opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.3 }}
           className="flex flex-col justify-evenly items-center text-justify space-y-10 text-sm indent-5"
         >
           <h3>
@@ -40,6 +42,7 @@ const Home = () => {
         <motion.div
           initial={{ x: "-100%", opacity: 0 }}
           whileInView={{ x: "0%", opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.3 }}
           className="w-full"
         >
           <img src={MarketingAni} alt="Marketing Animation" />
