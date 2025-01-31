@@ -17,7 +17,7 @@ const Partner = () => {
           className="w-full flex flex-col justify-evenly items-center space-y-10"
         >
           <h1 className="text-xl">The Vlogging Kid</h1>
-          <img src={TVK} alt="The Vlogging Kid Logo" className="w-4/6" />
+          <img src={TVK} alt="The Vlogging Kid Logo" className="w-4/6 border-4 dark:border-0 border-black rounded-full" />
         </motion.div>
         <motion.div
           className="w-full space-y-20"
