@@ -17,7 +17,7 @@ const App = () => {
   const isInView = useInView(ref, { once: false });
   return (
     <div className="w-full h-full dark:bg-darkback app dark:text-white overflow-x-hidden">
-      <img src={HomePink} alt="Pink Home Blob" className="absolute z-0" />
+      <img src={HomePink} alt="Pink Home Blob" className="absolute z-0 top-0 right-0 lg:w-5/12" />
       {!isInView && (
         <button
           className="fixed bottom-10 right-5 z-10 border-2 border-black dark:border-white p-2 rounded-full opacity-50"

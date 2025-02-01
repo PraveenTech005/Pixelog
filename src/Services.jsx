@@ -30,7 +30,7 @@ const Services = () => {
 
   return (
     <div
-      className="w-full min-h-screen backdrop-blur-sm p-5 flex flex-col justify-evenly items-center text-justify"
+      className="w-full min-h-screen backdrop-blur-sm p-5 flex flex-col items-center text-justify lg:mt-20"
       id="services"
     >
       <div className="flex flex-col justify-evenly items-center space-y-10 mt-10">
@@ -39,24 +39,24 @@ const Services = () => {
           Elevate Your Brand’s Impact with Our Tailored Solutions
         </h3>
       </div>
-      <div className="flex flex-wrap justify-evenly items-stretch gap-5 mt-10 text-center">
+      <div className="flex flex-wrap justify-evenly items-stretch gap-5 mt-10 text-center lg:px-40 xl:px-72 2xl:p-10">
         {content.map((item, index) => (
           <motion.div
             initial={
               index % 2 === 0
-                ? { x: "100%", opacity: 0 }
-                : { x: "-100%", opacity: 0 }
+                ? { x: "-100%", opacity: 0 }
+                : { x: "100%", opacity: 0 }
             }
             whileInView={{ x: "0%", opacity: 1 }}
             transition={{ duration: 0.4, delay: 0.3 }}
             key={index}
-            className="flex flex-col justify-evenly p-5 text-sm border-2 space-y-10 border-black dark:border-white rounded-xl sm:w-5/12 flex-grow"
+            className="flex flex-col justify-evenly p-5 text-sm border-2 space-y-10 border-black dark:border-white rounded-xl sm:w-5/12 flex-grow lg:w-4/12 2xl:w-2/12"
           >
             <h1 className="text-xl sm:text-2xl">{item.head}</h1>
             <img
               src={item.img}
               alt={item.head}
-              className="w-full rounded-2xl"
+              className="w-full h-full rounded-2xl"
             />
             <h3 className="indent-5 sm:indent-10 flex-1 text-justify sm:text-base">
               {item.para}

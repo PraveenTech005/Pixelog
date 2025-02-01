@@ -4,9 +4,9 @@ import Pixelog from "/img/Pixelog.svg";
 const Footer = () => {
   return (
     <>
-      <div className="w-full h-full bg-[#00000020] dark:bg-[#00000080] backdrop-blur-sm p-5 flex flex-col justify-evenly items-center space-y-10 dark:text-[#9D9D9F]">
+      <div className="w-full h-full bg-[#00000020] dark:bg-[#00000080] backdrop-blur-sm p-5 flex flex-col justify-evenly items-center space-y-10 dark:text-[#9D9D9F] md:flex-row md:mt-20">
         {/* Logo and Copyright */}
-        <div className="w-full flex flex-col justify-evenly items-center text-sm space-y-3">
+        <div className="w-full flex flex-col justify-evenly items-center text-sm space-y-3 md:w-5/12">
           <img src={Pixelog} alt="Pixelog Logo" className="dark:invert w-2/6" />
           <div className="flex flex-col justify-evenly items-center">
             <h3>© 2025 Pixelog.</h3>
@@ -20,12 +20,12 @@ const Footer = () => {
               Quick Links
             </h1>
             <div className="flex flex-col justify-center items-center gap-3 mt-3">
-              {["Home", "About", "Services", "Ad Partner", "Contact"].map(
+              {["Home", "About", "Services", "Ads Partner", "Contact"].map(
                 (item, index) => (
                   <a
                     href={`#${item.toLowerCase()}`}
                     key={index}
-                    className="font-atkinsonB p-2 rounded-lg hover:bg-gray-700 transition w-full text-center"
+                    className="font-atkinsonB p-2 rounded-lg transition w-full text-center"
                   >
                     {item}
                   </a>
@@ -59,7 +59,7 @@ const Footer = () => {
                 <a
                   href={contact.link}
                   key={index}
-                  className="flex flex-row justify-center items-center space-x-3 font-atkinsonB p-2 rounded-lg hover:bg-gray-700 transition w-36 text-center"
+                  className="flex flex-row justify-center items-center space-x-3 font-atkinsonB p-2 rounded-lg transition w-36 text-center"
                 >
                   {contact.icon} <h3>{contact.label}</h3>
                 </a>
@@ -72,7 +72,7 @@ const Footer = () => {
       <h3 className="text-center font-atkinsonB bg-black text-[#9D9D9F] p-1 text-sm">
         Designed & Developed by{" "}
         <a href="https://github.com/Praveentech005" className="text-white">
-          Pixelog Dev.
+          Praveen@Pixelog
         </a>
       </h3>
     </>

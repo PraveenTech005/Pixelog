@@ -5,16 +5,16 @@ import { motion } from "framer-motion";
 const Partner = () => {
   return (
     <div
-      className="w-full min-h-screen backdrop-blur-sm p-5 flex flex-col justify-evenly items-center space-y-10"
-      id="ad partner"
+      className="w-full h-screen backdrop-blur-sm p-5 flex flex-col justify-evenly items-center space-y-10 lg:mt-20"
+      id="ads partner"
     >
       <h1 className="text-3xl">Advertisement Partner</h1>
-      <div className="flex flex-col justify-evenly items-center space-y-20">
+      <div className="flex flex-col justify-evenly items-center space-y-20 lg:flex-row">
         <motion.div
           initial={{ x: "100%", opacity: 0 }}
           whileInView={{ x: "0%", opacity: 1 }}
           transition={{ duration: 0.4 }}
-          className="w-full flex flex-col justify-evenly items-center space-y-20 sm:w-4/6"
+          className="w-full flex flex-col justify-evenly items-center space-y-20 sm:w-4/6 lg:w-3/12"
         >
           <h1 className="text-2xl sm:text-3xl">The Vlogging Kid</h1>
           <img
@@ -24,7 +24,7 @@ const Partner = () => {
           />
         </motion.div>
         <motion.div
-          className="w-full space-y-20 sm:w-5/6"
+          className="w-full space-y-20 sm:w-5/6 lg:w-4/12"
           initial={{ x: "-100%", opacity: 0 }}
           whileInView={{ x: "0%", opacity: 1 }}
           transition={{ duration: 0.4 }}
