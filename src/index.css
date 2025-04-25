@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@font-face {
+  font-family: Englebert;
+  src: url("./assets/fonts/Englebert.ttf");
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url("./assets/fonts/Poppins-Regular.ttf");
+}
+
+@font-face {
+  font-family: Sora;
+  src: url("./assets/fonts/Sora-Bold.ttf");
+}
+
+@font-face {
+  font-family: Unbounded;
+  src: url("./assets/fonts/Unbounded-Medium.ttf");
+}
+
+@layer utilities {
+  @keyframes loading {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(250%);
+    }
+  }
+
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 100;
+    }
+    50% {
+      opacity: 0;
+      color: transparent;
+    }
+  }
+
+  .animate-loading {
+    animation: loading 1s infinite;
+  }
+
+  .animate-blink {
+    animation: blink 0.5s infinite;
+  }
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Poppins;
+}
+
+h1 {
+  font-family: Sora;
+}
+
+.englebert {
+  font-family: Englebert;
+}
+.poppins {
+  font-family: Poppins;
+}
+.sora {
+  font-family: Sora;
+}
+.unbounded {
+  font-family: Unbounded;
+}
