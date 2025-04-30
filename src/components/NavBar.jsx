@@ -23,8 +23,8 @@ const NavBar = ({ theme, setTheme }) => {
   };
 
   return (
-    <div className="w-full border-b ">
-      <div className="max-w-5xl flex justify-between items-center mx-auto p-4">
+    <div className="w-full border-b">
+      <div className="max-w-7xl flex justify-between items-center mx-auto p-4">
         <img
           src={Pixelog}
           alt="Pixelog Logo"
