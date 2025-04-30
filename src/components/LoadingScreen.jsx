@@ -22,14 +22,14 @@ const LoadingScreen = ({ setLoadScreen }) => {
   });
 
   return (
-    <div className="fixed inset-0 flex flex-col justify-center items-center space-y-5">
+    <div className="fixed inset-0 w-full h-screen flex flex-col justify-center items-center space-y-5 bg-white dark:bg-[#0E1118] z-[15]">
       <h1 className="text-4xl unbounded">
         {writer}
         <span className="animate-blink poppins">|</span>
       </h1>
       <h3 className="text-gray-400">Where marketing needs creativity</h3>
       <div className="w-[300px] h-1 bg-gray-500 rounded relative overflow-hidden">
-        <div className="w-[40%] bg-blue-500 animate-loading h-full"></div>
+        <div className="w-[100%] bg-blue-500 animate-loading h-full"></div>
       </div>
     </div>
   );
