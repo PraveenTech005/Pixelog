@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import NavBar from "../components/NavBar";
 import Parallax from "../components/Particles";
 
-const Home = ({ theme }) => {
+const Home = ({ theme, setTheme }) => {
   const serviceList = [
     "Digital Marketing",
     "Branding",
@@ -62,8 +62,9 @@ const Home = ({ theme }) => {
       <div className="pointer-events-none opacity-60">
         <Parallax theme={theme} />
       </div>
+      <NavBar theme={theme} setTheme={setTheme} />
       <section className="flex-1 flex flex-col lg:flex-row justify-evenly items-center">
-        <div className="w-5/6 lg:w-3/12 space-y-5 p-5 lg:p-10 card rounded-2xl">
+        <div className="w-5/6 lg:w-4/12 space-y-5 p-5 lg:p-10 card rounded-2xl">
           <div>
             <h2 className="englebert text-lg text-[#F9C95B]">Hi 👋, We Are</h2>
             <h1 className="text-4xl unbounded text-center">PIXELOG</h1>
@@ -87,7 +88,7 @@ const Home = ({ theme }) => {
           <img
             src={`src/assets/img/serviceImg/${currentIndexRef.current}.svg`}
             alt="Service Images"
-            className="homeimg w-5/6 mx-auto card rounded-2xl p-5"
+            className="homeimg w-full mx-auto card rounded-2xl p-5"
           />
         </div>
       </section>
