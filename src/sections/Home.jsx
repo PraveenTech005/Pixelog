@@ -2,18 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import NavBar from "../components/NavBar";
 import Parallax from "../components/Particles";
 
-const Home = ({ theme, setTheme }) => {
-  const serviceList = [
-    "Digital Marketing",
-    "Branding",
-    "Social Media Management",
-    "Website Designing",
-    "Website Development",
-    "Logo Designing",
-    "Image Editing",
-    "Video Editing",
-  ];
-
+const Home = ({ theme, setTheme, serviceList }) => {
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const currentIndexRef = useRef(0);
@@ -63,8 +52,8 @@ const Home = ({ theme, setTheme }) => {
         <Parallax theme={theme} />
       </div>
       <NavBar theme={theme} setTheme={setTheme} />
-      <section className="flex-1 flex flex-col lg:flex-row justify-evenly items-center">
-        <div className="w-5/6 lg:w-4/12 space-y-5 p-5 lg:p-10 card rounded-2xl">
+      <section className="flex-1 flex flex-col lg:flex-row justify-evenly items-center space-y-10">
+        <div className="w-5/6 max-w-lg md:w-4/6 space-y-5 p-5 lg:p-10 card rounded-2xl">
           <div>
             <h2 className="englebert text-lg text-[#F9C95B]">Hi 👋, We Are</h2>
             <h1 className="text-4xl unbounded text-center">PIXELOG</h1>
@@ -84,11 +73,11 @@ const Home = ({ theme, setTheme }) => {
             <button className=" p-3 px-5 rounded-xl ">Free Consultation</button>
           </div>
         </div>
-        <div className="w-5/6 lg:w-5/12">
+        <div className="w-5/6 max-w-2xl sm:w-4/6 card rounded-2xl p-5">
           <img
             src={`src/assets/img/serviceImg/${currentIndexRef.current}.svg`}
-            alt="Service Images"
-            className="homeimg w-full mx-auto card rounded-2xl p-5"
+            alt="Service"
+            className="homeimg w-full mx-auto"
           />
         </div>
       </section>
