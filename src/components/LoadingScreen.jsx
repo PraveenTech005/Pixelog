@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const LoadingScreen = ({ setLoadScreen }) => {
   const fullText = "< PIXELOG >";
   const [writer, setWriter] = useState("");
 
-  useState(() => {
+  useEffect(() => {
     let index = 0;
     const interval = setInterval(() => {
       if (index <= fullText.length) {
@@ -13,13 +13,20 @@ const LoadingScreen = ({ setLoadScreen }) => {
       } else {
         clearInterval(interval);
         setTimeout(() => {
+          document.body.classList.remove("no-scroll");
           setLoadScreen(true);
         }, 2000);
       }
     }, 100);
 
-    return () => clearInterval(interval);
-  });
+    document.body.classList.add("no-scroll");
+
+    return () => {
+      clearInterval(interval);
+      document.body.classList.remove("no-scroll");
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="fixed inset-0 w-full h-screen flex flex-col justify-center items-center space-y-5 bg-white dark:bg-[#0E1118] z-[15]">

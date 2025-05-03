@@ -28,9 +28,11 @@ const Services = ({ serviceList }) => {
               key={index}
               onMouseOver={() => setHoveredIndex(index)}
               onClick={() => setSelectedIndex(index)}
-              className={`${
-                selectedIndex === index ? "bg-indigo-600" : ""
-              } rounded-2xl hover:bg-blue-500`}
+              className={`transition-all duration-200 ${
+                selectedIndex === index
+                  ? "bg-indigo-600 shadow-lg"
+                  : "hover:bg-blue-500 hover:-translate-y-1"
+              } rounded-2xl`}
             >
               <h2 className="text-lg card p-2 text-center rounded-2xl cursor-pointer font-bold">
                 {item}
@@ -44,13 +46,42 @@ const Services = ({ serviceList }) => {
             <img
               src={`src/assets/img/serviceImg/${currentIndex}.svg`}
               alt="Service"
-              className="w-5/12 float-left m-5"
+              className="w-5/12 float-right m-5" 
             />
             <p className="indent-10 leading-7">
               {serviceContent[currentIndex]}
             </p>
           </div>
         </div>
+      </div>
+      <div className="w-5/6 flex-1 flex-col justify-evenly items-center space-y-5 lg:hidden">
+        {serviceList.map((item, index) => (
+          <div
+            key={index}
+            onClick={() => setSelectedIndex(index)}
+            className={`transition-all duration-200 ${
+              selectedIndex === index
+                ? "bg-indigo-600 shadow-lg"
+                : "hover:bg-blue-500"
+            } rounded-2xl`}
+          >
+            <h1 className="text-lg card p-2 text-center rounded-2xl cursor-pointer font-bold">
+              {item}
+            </h1>
+            {selectedIndex === index && (
+              <div className="p-5">
+                <img
+                  src={`src/assets/img/serviceImg/${selectedIndex}.svg`}
+                  alt="Service"
+                  className="w-5/12 float-right m-5"
+                />
+                <p className="indent-10 text-white">
+                  {serviceContent[selectedIndex]}
+                </p>
+              </div>
+            )}
+          </div>
+        ))}
       </div>
     </section>
   );
