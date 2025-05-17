@@ -46,7 +46,7 @@ const Services = ({ serviceList }) => {
             <img
               src={`src/assets/img/serviceImg/${currentIndex}.svg`}
               alt="Service"
-              className="w-5/12 float-right m-5" 
+              className="w-5/12 float-right m-5"
             />
             <p className="indent-10 leading-7">
               {serviceContent[currentIndex]}
@@ -54,7 +54,7 @@ const Services = ({ serviceList }) => {
           </div>
         </div>
       </div>
-      <div className="w-5/6 flex-1 flex-col justify-evenly items-center space-y-5 lg:hidden">
+      <div className="w-5/6 flex-1 flex-col justify-evenly items-center space-y-5 lg:hidden mb-10 lg:mb-0">
         {serviceList.map((item, index) => (
           <div
             key={index}

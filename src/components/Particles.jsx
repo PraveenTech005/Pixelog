@@ -13,9 +13,9 @@ const Parallax = React.memo(({ theme }) => {
     });
   }, []);
 
-  const particlesLoaded = (container) => {
-    console.log(container);
-  };
+  // const particlesLoaded = (container) => {
+  //   console.log(container);
+  // };
 
   const options = useMemo(() => {
     const color = theme === "light" ? "#000000" : "#ffffff";
@@ -113,7 +113,7 @@ const Parallax = React.memo(({ theme }) => {
     return (
       <Particles
         id="tsparticles"
-        particlesLoaded={particlesLoaded}
+        // particlesLoaded={particlesLoaded}
         options={options}
       />
     );

@@ -52,10 +52,12 @@ const Home = ({ theme, setTheme, serviceList }) => {
         <Parallax theme={theme} />
       </div>
       <NavBar theme={theme} setTheme={setTheme} />
-      <section className="flex-1 flex flex-col lg:flex-row justify-evenly items-center space-y-10">
+      <section className="flex-1 flex flex-col lg:flex-row justify-evenly items-center space-y-10 lg:space-y-0">
         <div className="w-5/6 max-w-lg md:w-4/6 space-y-5 p-5 lg:p-10 card rounded-2xl">
           <div>
-            <h2 className="englebert text-lg text-[#F9C95B]">Hi 👋, We Are</h2>
+            <h2 className="englebert text-lg text-[#FF890B] dark:text-[#F9C95B]">
+              Hi 👋, We Are
+            </h2>
             <h1 className="text-4xl unbounded text-center">PIXELOG</h1>
           </div>
           <div className="space-y-2">
@@ -77,7 +79,7 @@ const Home = ({ theme, setTheme, serviceList }) => {
           <img
             src={`src/assets/img/serviceImg/${currentIndexRef.current}.svg`}
             alt="Service"
-            className="homeimg w-full mx-auto"
+            className="homeimg w-full mx-auto max-h-72"
           />
         </div>
       </section>

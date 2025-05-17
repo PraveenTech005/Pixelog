@@ -4,6 +4,7 @@ import About from "./sections/About";
 import Services from "./sections/Services";
 import RecentWorks from "./sections/RecentWorks";
 import LoadingScreen from "./components/LoadingScreen";
+import Contact from "./sections/Contact";
 
 const Client = () => {
   const [theme, setTheme] = useState("light");
@@ -27,6 +28,7 @@ const Client = () => {
       <About />
       <Services serviceList={serviceList} />
       <RecentWorks />
+      {/* <Contact /> */}
     </div>
   );
 };
