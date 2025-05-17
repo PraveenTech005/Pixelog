@@ -28,7 +28,18 @@ const Client = () => {
       <About />
       <Services serviceList={serviceList} />
       <RecentWorks />
-      {/* <Contact /> */}
+      <Contact />
+      <footer className="card p-3 text-center text-sm mt-10">
+        <h3 className="m-auto sora">
+          Designed and Developed By{" "}
+          <a
+            href="https://github.com/PraveenTech005"
+            className="text-[#FF890B] dark:text-[#F9C95B] cursor-pointer"
+          >
+            Praveen.
+          </a>
+        </h3>
+      </footer>
     </div>
   );
 };
