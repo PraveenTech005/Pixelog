@@ -1,16 +1,52 @@
-# React + Vite
+# Pixelog — Official Website Repository
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains the source code for the official website of **Pixelog**, a creative digital agency focused on helping startups and growing businesses build a strong digital presence.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## About Pixelog
 
-## React Compiler
+Pixelog is a digital-first agency offering branding, digital marketing, web development, media promotions, and creative services.  
+Our goal is to help brands communicate clearly, grow consistently, and stand out in today’s digital landscape.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Purpose of This Repository
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+This repository exists to:
+
+- Represent Pixelog’s official digital presence
+- Showcase the agency’s design approach and development standards
+- Serve as the foundation for Pixelog’s public-facing website
+- Maintain transparency and version control for ongoing improvements
+
+---
+
+## Ownership & Rights
+
+All code, design, and content in this repository are owned by **Pixelog** unless stated otherwise.
+
+This project reflects Pixelog’s brand identity, creative direction, and technical implementation.
+
+---
+
+## Design Philosophy
+
+- Clean and modern UI
+- User-focused layouts
+- Performance and responsiveness
+- Simplicity over complexity
+- Creativity backed by purpose
+
+---
+
+## Status
+
+This website is actively maintained and updated as Pixelog evolves.
+
+---
+
+## License
+
+This project is licensed under the **MIT License**.  
+© 2025 Pixelog
