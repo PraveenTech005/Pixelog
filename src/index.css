@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Englebert&family=Poppins:wght@500&family=Sora:wght@600&family=Unbounded:wght@700&display=swap");
+
+@import "tailwindcss";
+
+* {
+  scroll-behavior: smooth;
+}
+
+.unbounded {
+  font-family: "Unbounded", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.englebert {
+  font-family: "Englebert", cursive;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.sora {
+  font-family: "Sora", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.poppins {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: black;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: white;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+.und::after {
+  content: "";
+  display: flex;
+  margin: 0 auto;
+  width: 60%;
+  height: 3px;
+  border-radius: 1pc;
+  transition: 0.3s;
+}
+
+.und:hover::after {
+  background-color: white;
+}
+
+.carousel .swiper-slide {
+  transition: all 0.4s ease;
+  opacity: 0.3;
+  transform: scale(0.7) translateZ(-120px);
+  filter: grayscale(80%);
+}
+
+.carousel .swiper-slide-active {
+  opacity: 1 !important;
+  transform: scale(1) translateZ(0px);
+  filter: grayscale(0%);
+}
+
+.carousel-video {
+  height: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.carousel-slide {
+  transition: opacity 0.4s linear;
+  opacity: 0 !important;
+}
+
+.carousel-slide.swiper-slide-prev,
+.carousel-slide.swiper-slide-active,
+.carousel-slide.swiper-slide-next {
+  opacity: 1 !important; /* show only these 3 */
+}
