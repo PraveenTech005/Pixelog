@@ -232,7 +232,7 @@ const App = () => {
           {services.map((item, index) => (
             <div
               key={index}
-              className="bg-white/10 border-2 border-white/10 rounded-2xl h-auto stack cursor-pointer -rotate-z-5 transition duration-300 ease-in-out hover:scale-[1.02]"
+              className="bg-white/10 border-2 border-white/10 rounded-2xl h-auto stack cursor-pointer -rotate-z-5"
             >
               <h1 className="bg-neutral-900 text-xl sora text-center rounded-t-2xl py-2">
                 {item.title}
