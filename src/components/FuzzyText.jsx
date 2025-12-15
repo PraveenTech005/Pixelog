@@ -15,8 +15,11 @@ const FuzzyText = ({
   useEffect(() => {
     let animationFrameId;
     let isCancelled = false;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
+
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
 
     const init = async () => {
       if (document.fonts?.ready) {
@@ -34,6 +37,7 @@ const FuzzyText = ({
 
       const fontSizeStr =
         typeof fontSize === "number" ? `${fontSize}px` : fontSize;
+
       let numericFontSize;
       if (typeof fontSize === "number") {
         numericFontSize = fontSize;
@@ -41,19 +45,20 @@ const FuzzyText = ({
         const temp = document.createElement("span");
         temp.style.fontSize = fontSize;
         document.body.appendChild(temp);
-        const computedSize = window.getComputedStyle(temp).fontSize;
-        numericFontSize = parseFloat(computedSize);
+        numericFontSize = parseFloat(window.getComputedStyle(temp).fontSize);
         document.body.removeChild(temp);
       }
 
       const text = React.Children.toArray(children).join("");
 
+      /* ---------- OFFSCREEN CANVAS ---------- */
       const offscreen = document.createElement("canvas");
       const offCtx = offscreen.getContext("2d");
       if (!offCtx) return;
 
       offCtx.font = `${fontWeight} ${fontSizeStr} ${computedFontFamily}`;
       offCtx.textBaseline = "alphabetic";
+
       const metrics = offCtx.measureText(text);
 
       const actualLeft = metrics.actualBoundingBoxLeft ?? 0;
@@ -62,128 +67,119 @@ const FuzzyText = ({
       const actualDescent =
         metrics.actualBoundingBoxDescent ?? numericFontSize * 0.2;
 
-      const textBoundingWidth = Math.ceil(actualLeft + actualRight);
-      const tightHeight = Math.ceil(actualAscent + actualDescent);
+      const textWidth = Math.ceil(actualLeft + actualRight);
+      const textHeight = Math.ceil(actualAscent + actualDescent);
 
-      const extraWidthBuffer = 10;
-      const offscreenWidth = textBoundingWidth + extraWidthBuffer;
+      const padding = 10;
+      offscreen.width = textWidth + padding;
+      offscreen.height = textHeight;
 
-      offscreen.width = offscreenWidth;
-      offscreen.height = tightHeight;
-
-      const xOffset = extraWidthBuffer / 2;
       offCtx.font = `${fontWeight} ${fontSizeStr} ${computedFontFamily}`;
-      offCtx.textBaseline = "alphabetic";
       offCtx.fillStyle = color;
-      offCtx.fillText(text, xOffset - actualLeft, actualAscent);
+      offCtx.fillText(text, padding / 2 - actualLeft, actualAscent);
 
+      /* ---------- MAIN CANVAS ---------- */
       const horizontalMargin = 50;
-      const verticalMargin = 0;
-      canvas.width = offscreenWidth + horizontalMargin * 2;
-      canvas.height = tightHeight + verticalMargin * 2;
-      ctx.translate(horizontalMargin, verticalMargin);
+      canvas.width = offscreen.width + horizontalMargin * 2;
+      canvas.height = offscreen.height;
 
-      const interactiveLeft = horizontalMargin + xOffset;
-      const interactiveTop = verticalMargin;
-      const interactiveRight = interactiveLeft + textBoundingWidth;
-      const interactiveBottom = interactiveTop + tightHeight;
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      canvas.width *= dpr;
+      canvas.height *= dpr;
+      ctx.scale(dpr, dpr);
 
+      ctx.translate(horizontalMargin, 0);
+
+      const fuzzRange = isIOS ? 15 : 30;
       let isHovering = false;
-      const fuzzRange = 30;
+
+      const interactiveLeft = horizontalMargin;
+      const interactiveRight = interactiveLeft + textWidth;
+      const interactiveTop = 0;
+      const interactiveBottom = textHeight;
+
+      const isInsideTextArea = (x, y) =>
+        x >= interactiveLeft &&
+        x <= interactiveRight &&
+        y >= interactiveTop &&
+        y <= interactiveBottom;
 
       const run = () => {
         if (isCancelled) return;
+
         ctx.clearRect(
           -fuzzRange,
           -fuzzRange,
-          offscreenWidth + 2 * fuzzRange,
-          tightHeight + 2 * fuzzRange
+          offscreen.width + fuzzRange * 2,
+          offscreen.height + fuzzRange * 2
         );
-        const intensity = isHovering ? hoverIntensity : baseIntensity;
-        for (let j = 0; j < tightHeight; j++) {
+
+        const intensity = isIOS
+          ? baseIntensity
+          : isHovering
+          ? hoverIntensity
+          : baseIntensity;
+
+        const step = isIOS ? 2 : 1;
+
+        for (let y = 0; y < textHeight; y += step) {
           const dx = Math.floor(intensity * (Math.random() - 0.5) * fuzzRange);
           ctx.drawImage(
             offscreen,
             0,
-            j,
-            offscreenWidth,
-            1,
+            y,
+            offscreen.width,
+            step,
             dx,
-            j,
-            offscreenWidth,
-            1
+            y,
+            offscreen.width,
+            step
           );
         }
-        animationFrameId = window.requestAnimationFrame(run);
+
+        // Throttle FPS for iOS
+        setTimeout(
+          () => {
+            animationFrameId = requestAnimationFrame(run);
+          },
+          isIOS ? 33 : 16
+        );
       };
 
       run();
 
-      const isInsideTextArea = (x, y) => {
-        return (
-          x >= interactiveLeft &&
-          x <= interactiveRight &&
-          y >= interactiveTop &&
-          y <= interactiveBottom
-        );
-      };
-
+      /* ---------- EVENTS ---------- */
       const handleMouseMove = (e) => {
-        if (!enableHover) return;
+        if (!enableHover || isIOS) return;
         const rect = canvas.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        isHovering = isInsideTextArea(x, y);
+        isHovering = isInsideTextArea(
+          e.clientX - rect.left,
+          e.clientY - rect.top
+        );
       };
 
       const handleMouseLeave = () => {
         isHovering = false;
       };
 
-      const handleTouchMove = (e) => {
-        if (!enableHover) return;
-        e.preventDefault();
-        const rect = canvas.getBoundingClientRect();
-        const touch = e.touches[0];
-        const x = touch.clientX - rect.left;
-        const y = touch.clientY - rect.top;
-        isHovering = isInsideTextArea(x, y);
-      };
-
-      const handleTouchEnd = () => {
-        isHovering = false;
-      };
-
-      if (enableHover) {
+      if (enableHover && !isIOS) {
         canvas.addEventListener("mousemove", handleMouseMove);
         canvas.addEventListener("mouseleave", handleMouseLeave);
-        canvas.addEventListener("touchmove", handleTouchMove, {
-          passive: false,
-        });
-        canvas.addEventListener("touchend", handleTouchEnd);
       }
 
-      const cleanup = () => {
-        window.cancelAnimationFrame(animationFrameId);
-        if (enableHover) {
-          canvas.removeEventListener("mousemove", handleMouseMove);
-          canvas.removeEventListener("mouseleave", handleMouseLeave);
-          canvas.removeEventListener("touchmove", handleTouchMove);
-          canvas.removeEventListener("touchend", handleTouchEnd);
-        }
+      canvas.cleanupFuzzyText = () => {
+        cancelAnimationFrame(animationFrameId);
+        canvas.removeEventListener("mousemove", handleMouseMove);
+        canvas.removeEventListener("mouseleave", handleMouseLeave);
       };
-
-      canvas.cleanupFuzzyText = cleanup;
     };
 
     init();
 
     return () => {
       isCancelled = true;
-      window.cancelAnimationFrame(animationFrameId);
-      if (canvas && canvas.cleanupFuzzyText) {
-        canvas.cleanupFuzzyText();
-      }
+      cancelAnimationFrame(animationFrameId);
+      if (canvas?.cleanupFuzzyText) canvas.cleanupFuzzyText();
     };
   }, [
     children,
@@ -196,7 +192,16 @@ const FuzzyText = ({
     hoverIntensity,
   ]);
 
-  return <canvas ref={canvasRef} className="cursor-pointer w-full"/>;
+  return (
+    <canvas
+      ref={canvasRef}
+      className="w-full cursor-pointer"
+      style={{
+        transform: "translateZ(0)",
+        willChange: "transform",
+      }}
+    />
+  );
 };
 
 export default FuzzyText;
