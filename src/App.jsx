@@ -1,7 +1,7 @@
 import { useGSAP } from "@gsap/react";
 import Navbar from "./components/Navbar";
 import gsap from "gsap";
-import FuzzyText from "./components/FuzzyText";
+// import FuzzyText from "./components/FuzzyText";
 
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -186,21 +186,26 @@ const App = () => {
         <Navbar />
       </nav>
       <section
-        className="w-full min-h-svh flex flex-col items-center relative"
+        className="w-full min-h-svh flex flex-col items-center relative bg-[url('/bg.png')] bg-center bg-cover bg-no-repeat"
         id="home"
       >
+        <div className="absolute w-full min-h-svh bg-black/50"></div>
+        <div className="absolute w-full h-screen top-0 left-0"></div>
         <div className="w-full min-h-svh flex flex-col justify-evenly items-center z-0 relative">
           <div className="space-y-5 title z-1 mt-50">
-            <p className="sora w-10/12 mx-auto text-xl">Hi 👋, We are</p>
+            <p className="sora w-full mx-auto text-xl">Hi 👋, We are</p>
             <div className="w-10/12 mx-auto">
-              <FuzzyText
+              {/* <FuzzyText
                 baseIntensity={0.1}
                 hoverIntensity={0.4}
                 enableHover={true}
                 fontFamily="unbounded"
               >
                 PIXELOG
-              </FuzzyText>
+              </FuzzyText> */}
+              <h1 className="text-white text-5xl lg:text-7xl unbounded transition duration-300 ease-in-out hover:scale-[1.1] cursor-pointer">
+                PIXELOG
+              </h1>
             </div>
           </div>
           <div className="desc w-10/12 lg:w-5/12 text-center p-5 space-y-20  z-1">
@@ -367,6 +372,53 @@ const App = () => {
           </div>
         </div>
       </section>
+      <section className="w-full flex flex-col pt-10 lg:pt-16 z-0 max-w-7xl space-y-10">
+        <h1 className="pl-10 lg:pl-0 text-2xl sora text-white">
+          Advertising Partner
+        </h1>
+        <div className="w-full flex flex-col lg:flex-row-reverse p-10 justify-center items-center space-y-10 lg:space-y-0">
+          <img
+            src="/TVK.png"
+            alt="The Vlogging Kid"
+            className="w-8/12 mx-auto lg:w-3/12"
+          />
+          <div className="w-full lg:w-5/12 space-y-5 bg-white/10 p-5 rounded-xl border-2 border-white/10">
+            <h1 className="sora text-white text-2xl text-center">
+              The Vlogging Kid
+            </h1>
+            <p className="w-full lg:w-10/12 mx-auto">
+              We proudly collaborate with The Vlogging Kid as our advertising
+              and media promotion partner. With a strong and engaged audience
+              across social platforms, he helps amplify brand stories and
+              connect them with the right audience.
+            </p>
+            <ul className="w-full lg:w-10/12 mx-auto list-disc pl-10">
+              <li>Instagram: 22K+ followers</li>
+              <li>YouTube: 12K+ subscribers</li>
+            </ul>
+            <p className="w-full lg:w-10/12 mx-auto">
+              This partnership reflects our shared focus on creativity,
+              authenticity, and meaningful digital growth.
+            </p>
+            <div className="w-8/12 mx-auto flex flex-row justify-evenly items-center">
+              <a
+                href="https://www.instagram.com/the_vlogging_kid_"
+                target="_blank"
+              >
+                <button className="hover:text-white duration-300 cursor-pointer ">
+                  <FaInstagram size={25} />
+                </button>
+              </a>
+              <a href="https://www.youtube.com/@TheVloggingKid" target="_blank">
+                <button className="hover:text-white duration-300 cursor-pointer ">
+                  <FaYoutube size={25} />
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section
         className="w-full min-h-svh flex flex-col pt-10 lg:pt-16 z-0 max-w-7xl space-y-10"
         id="contact"
