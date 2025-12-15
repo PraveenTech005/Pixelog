@@ -277,7 +277,7 @@ const App = () => {
             }}
             className="w-full h-[600px] lg:h-[450px] carousel"
           >
-            {[0, 1, 2, 3, 4, 5].map((item, index) => (
+            {[0, 1, 2, 3, 4, 5, 6].map((item, index) => (
               <SwiperSlide key={index} className="carousel-slide">
                 <video
                   className="carousel-video w-full lg:w-[80%] mx-auto"
