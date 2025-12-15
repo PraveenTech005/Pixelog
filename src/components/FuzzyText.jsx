@@ -196,7 +196,7 @@ const FuzzyText = ({
     hoverIntensity,
   ]);
 
-  return <canvas ref={canvasRef} className="cursor-pointer"/>;
+  return <canvas ref={canvasRef} className="cursor-pointer w-full"/>;
 };
 
 export default FuzzyText;

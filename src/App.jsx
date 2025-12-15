@@ -191,8 +191,8 @@ const App = () => {
       >
         <div className="w-full min-h-svh flex flex-col justify-evenly items-center z-0 relative">
           <div className="space-y-5 title z-1 mt-50">
-            <p className="sora w-6/12 text-xl">Hi 👋, We are</p>
-            <div>
+            <p className="sora w-10/12 text-xl">Hi 👋, We are</p>
+            <div className="w-full">
               <FuzzyText
                 baseIntensity={0.1}
                 hoverIntensity={0.4}
