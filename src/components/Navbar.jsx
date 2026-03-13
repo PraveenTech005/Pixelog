@@ -4,12 +4,13 @@ import { FaInstagram, FaYoutube } from "react-icons/fa";
 const Navbar = () => {
   return (
     <div className="w-full flex justify-between items-center p-3 lg:px-10">
-      <img
-        src="/Pixelog.svg"
-        alt="Logo"
-        className="bg-white/10 p-2 px-5 backdrop-blur-sm border-2 border-white/10 rounded-xl shadow-md w-4/12 lg:w-1/10"
-      />
-      <div className="hidden lg:flex justify-between items-center space-x-5 sora bg-white/10 p-2 px-5 backdrop-blur-sm border-2 border-white/10 rounded-xl shadow-md">
+      <div className="flex flex-row w-[35%] lg:w-[12%] justify-evenly items-center bg-white/80 backdrop-blur-sm border-2 border-white/10 rounded-xl shadow-md p-2">
+        <img src="/pixelog-new.svg" alt="Logo" className="w-3/12" />
+        <p className="text-neutral-700 text-xl sora flex-1 text-center font-bold">
+          Pixelog
+        </p>
+      </div>
+      <div className="hidden lg:flex justify-between items-center space-x-5 sora bg-white/10 p-1 px-3 backdrop-blur-sm border-2 border-white/10 rounded-xl shadow-md">
         {["HOME", "SERVICES", "PROJECTS", "ABOUT", "CONTACT"].map(
           (item, index) => (
             <a
@@ -19,7 +20,7 @@ const Navbar = () => {
             >
               <h3>{item}</h3>
             </a>
-          )
+          ),
         )}
       </div>
       <div className="flex justify-center items-center space-x-5 bg-white/10 p-2 px-5 backdrop-blur-sm border-2 border-white/10 rounded-xl shadow-md text-white lg:text-[#969696]">

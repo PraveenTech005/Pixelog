@@ -117,7 +117,7 @@ const App = () => {
         x: 1500,
         opacity: 0,
       },
-      0.1
+      0.1,
     );
 
     gsap.utils.toArray(".stack").forEach((el) => {
@@ -158,7 +158,7 @@ const App = () => {
           email: mailer.email,
           message: mailer.message,
         },
-        import.meta.env.VITE_EMAILJS_KEY
+        import.meta.env.VITE_EMAILJS_KEY,
       );
 
       toast.success("Mail Sent Successfully");
@@ -510,7 +510,12 @@ const App = () => {
         </div>
       </section>
       <footer className="p-10 bg-white/5 w-full flex flex-col lg:flex-row justify-evenly items-center space-y-10 lg:space-y-0">
-        <img src="/Pixelog.svg" alt="Pixelog Logo" />
+        <div className="flex flex-col w-[40%] lg:w-[12%] justify-evenly items-center bg-white/80 backdrop-blur-sm border-2 border-white/10 rounded-xl shadow-md p-2 space-y-3">
+          <img src="/pixelog-new.svg" alt="Logo" className="w-8/12" />
+          <p className="text-neutral-700 text-3xl sora flex-1 text-center font-bold">
+            Pixelog
+          </p>
+        </div>
         <div className="w-full lg:w-8/12 flex justify-evenly">
           <div className="space-y-3 w-5/12 flex flex-col justify-center items-center">
             <h1 className="text-lg text-white sora">Quick Links</h1>
